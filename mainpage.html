@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Dashboard Landing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center p-6">
+
+    <!-- Page Title -->
+    <h1 class="text-3xl sm:text-4xl font-bold mb-8 text-gray-800 text-center">
+        Sensor Overview
+    </h1>
+
+    <!-- Sensor Temperature Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-6xl">
+        <!-- BME280 Card -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center transform transition hover:scale-105">
+            <h2 class="text-xl font-semibold mb-2 text-gray-700">BME280 Temperature</h2>
+            <p id="bme280-temp" class="text-4xl sm:text-5xl font-bold text-red-500">-- °C</p>
+            <a href="bme280/index.html" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition">
+                View Details
+            </a>
+        </div>
+
+        <!-- BMP180 Card -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center transform transition hover:scale-105">
+            <h2 class="text-xl font-semibold mb-2 text-gray-700">BMP180 Temperature</h2>
+            <p id="bmp180-temp" class="text-4xl sm:text-5xl font-bold text-red-500">-- °C</p>
+            <a href="bmp180/index.html" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition">
+                View Details
+            </a>
+        </div>
+
+        <!-- Add more sensors easily -->
+        <!-- Example Sensor -->
+        <!--
+        <div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col items-center transform transition hover:scale-105">
+            <h2 class="text-xl font-semibold mb-2 text-gray-700">Sensor X Temperature</h2>
+            <p id="sensorX-temp" class="text-4xl sm:text-5xl font-bold text-red-500">-- °C</p>
+            <a href="sensorX.html" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition">
+                View Details
+            </a>
+        </div>
+        -->
+    </div>
+
+    <script>
+        // Simulate fetching temperature from each sensor
+        function updateTemperatures() {
+            document.getElementById('bme280-temp').innerText = (22 + Math.random()*3).toFixed(1) + ' °C';
+            document.getElementById('bmp180-temp').innerText = (21 + Math.random()*2).toFixed(1) + ' °C';
+        }
+
+        setInterval(updateTemperatures, 2000);
+    </script>
+</body>
+</html>
